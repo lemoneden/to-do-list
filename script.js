@@ -2,7 +2,7 @@ const btnClearAll = document.querySelector(".clear-all");
 const btnAddTask = document.querySelector(".add-task");
 const submit = document.querySelector(".submit");
 
-const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 localStorage.setItem("tasks", JSON.stringify(tasks));
 
 const addTask = (tasks) => {
@@ -41,9 +41,13 @@ submit.addEventListener("click", () => {
 });
 
 btnClearAll.addEventListener("click", () => {
-  tasks.length = 0;
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-  showTasks(tasks);
+  const confirmDelete = confirm("Are you sure you want to delete this task?");
+
+  if (confirmDelete) {
+    tasks.length = 0;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    showTasks(tasks);
+  }
 });
 
 const toggleDone = (id) => {
@@ -56,10 +60,13 @@ const toggleDone = (id) => {
 };
 
 const deleteTask = (id) => {
-  const newTasks = tasks.filter((element) => element.id !== id);
-  console.log(newTasks);
-  localStorage.setItem("tasks", JSON.stringify(newTasks));
-  showTasks(newTasks);
+  const confirmDelete = confirm("Are you sure you want to delete this task?");
+
+  if (confirmDelete) {
+    tasks = tasks.filter((element) => element.id !== id);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    showTasks(tasks);
+  }
 };
 
 document.querySelector(".tasks-list").addEventListener("click", (e) => {

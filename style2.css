@@ -1,0 +1,154 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Форма на всю ширину */
+.form {
+  display: flex;
+  width: 100%;
+}
+
+/* Поле ввода - растягивается */
+.add-task {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Подсветка поля ввода зелёным */
+.add-task:focus {
+  border-color: #4caf50;
+}
+
+/* Кнопка Submit */
+.submit {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: 2px solid #4caf50;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  font-size: 16px;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.submit:hover {
+  background-color: #45a049;
+}
+
+/* Кнопка Clear All */
+.clear-all {
+  padding: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.clear-all:hover {
+  background-color: #c82333;
+}
+
+/* Список задач */
+.tasks-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Элемент задачи */
+.tasks-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+/* Выполненная задача */
+.tasks-item.done {
+  background-color: #d4edda;
+}
+
+.tasks-item.done .tasks-text {
+  text-decoration: line-through;
+  color: #155724;
+}
+
+/* Текст задачи */
+.tasks-text {
+  font-size: 16px;
+  word-break: break-word;
+  flex: 1;
+}
+
+/* Контейнер кнопок действий */
+.tasks-actions {
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+/* Кнопка Done */
+.btn-done {
+  padding: 5px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.btn-done:hover {
+  background-color: #218838;
+}
+
+/* Кнопка Delete */
+.btn-delete {
+  padding: 5px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* Эффект нажатия */
+.btn:active,
+.btn-done:active,
+.btn-delete:active {
+  filter: brightness(70%);
+  transition: 0.1s;
+}
